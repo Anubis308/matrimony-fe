@@ -24,7 +24,9 @@ export const profileSchema = z.object({
 export const searchSchema = z.object({
   minAge: z.number().optional(),
   maxAge: z.number().optional(),
-  gender: z.enum(['Male', 'Female', 'Other']).optional(),
+  gender: z.enum(['Male', 'Female', 'Other'], {
+    message: 'Please select a gender to search for profiles'
+  }),  // Made mandatory
   minHeightInCm: z.number().optional(),
   maxHeightInCm: z.number().optional(),
   religion: z.string().optional(),

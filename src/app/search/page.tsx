@@ -8,6 +8,7 @@ import { searchApi, type SearchResponse } from '@/lib/api/search';
 import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function SearchPage() {
   const router = useRouter();
@@ -25,6 +26,7 @@ export default function SearchPage() {
   const {
     register,
     handleSubmit,
+    formState: { errors },
   } = useForm({
     resolver: zodResolver(searchSchema),
     defaultValues: {
@@ -67,6 +69,37 @@ export default function SearchPage() {
             <p className="text-gray-600">Find your perfect match using advanced filters</p>
           </div>
 
+          {/* Quick Search */}
+          <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">Quick Search</h2>
+            <form onSubmit={handleSubmit((data) => onSubmit({ gender: data.gender, pageNumber: 1, pageSize: 20 }))} className="flex gap-4 items-end">
+              <div className="flex-1">
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Looking for *
+                </label>
+                <select
+                  {...register('gender')}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-gray-900"
+                >
+                  <option value="">Select Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+                {errors.gender && (
+                  <p className="mt-1 text-sm text-red-600">{errors.gender.message}</p>
+                )}
+              </div>
+              <button
+                type="submit"
+                disabled={isSearching}
+                className="px-8 py-3 bg-pink-600 text-white rounded-lg hover:bg-pink-700 transition disabled:opacity-50"
+              >
+                {isSearching ? 'Searching...' : '🔍 Search'}
+              </button>
+            </form>
+          </div>
+
           {/* Filter Toggle Button */}
           <div className="mb-6">
             <button
@@ -75,6 +108,9 @@ export default function SearchPage() {
             >
               {showFilters ? '🔼 Hide Filters' : '🔽 Show Filters'}
             </button>
+            <p className="mt-2 text-sm text-gray-600">
+              <span className="text-red-500">*</span> Gender is required to search profiles
+            </p>
           </div>
 
           {/* Filters */}
@@ -84,17 +120,20 @@ export default function SearchPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Gender
+                      Gender *
                     </label>
                     <select
                       {...register('gender')}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-gray-900"
                     >
-                      <option value="">Any</option>
+                      <option value="">Select Gender</option>
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                       <option value="Other">Other</option>
                     </select>
+                    {errors.gender && (
+                      <p className="mt-1 text-sm text-red-600">{errors.gender.message}</p>
+                    )}
                   </div>
 
                   <div>
@@ -259,9 +298,11 @@ export default function SearchPage() {
                     >
                       <div className="h-48 bg-gradient-to-br from-pink-200 to-purple-200 flex items-center justify-center">
                         {profile.primaryPhotoUrl ? (
-                          <img
+                          <Image
                             src={profile.primaryPhotoUrl}
                             alt={profile.name}
+                            width={400}
+                            height={300}
                             className="w-full h-full object-cover"
                           />
                         ) : (
