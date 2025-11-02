@@ -34,9 +34,24 @@ export interface Photo {
   isApproved: boolean;
 }
 
+// Enum mapping utilities
+const genderEnumMap = { Male: 0, Female: 1, Other: 2 } as const;
+const maritalStatusEnumMap = { NeverMarried: 0, Divorced: 1, Widowed: 2, AwaitingDivorce: 3 } as const;
+
+type GenderEnum = keyof typeof genderEnumMap;
+type MaritalStatusEnum = keyof typeof maritalStatusEnumMap;
+
+// Transform form data to API format (string enums to numbers)
+const transformProfileData = (data: ProfileInput) => ({
+  ...data,
+  gender: genderEnumMap[data.gender as GenderEnum],
+  maritalStatus: maritalStatusEnumMap[data.maritalStatus as MaritalStatusEnum],
+});
+
 export const profileApi = {
   createProfile: async (data: ProfileInput): Promise<Profile> => {
-    const response = await apiClient.post<Profile>('/profile', data);
+    const transformedData = transformProfileData(data);
+    const response = await apiClient.post<Profile>('/profile', transformedData);
     return response.data;
   },
 
@@ -51,7 +66,15 @@ export const profileApi = {
   },
 
   updateProfile: async (data: Partial<ProfileInput>): Promise<Profile> => {
-    const response = await apiClient.put<Profile>('/profile', data);
+    // Transform enum strings to numbers for partial updates
+    const transformedData: Record<string, unknown> = { ...data };
+    if (data.gender) {
+      transformedData.gender = genderEnumMap[data.gender as GenderEnum];
+    }
+    if (data.maritalStatus) {
+      transformedData.maritalStatus = maritalStatusEnumMap[data.maritalStatus as MaritalStatusEnum];
+    }
+    const response = await apiClient.put<Profile>('/profile', transformedData);
     return response.data;
   },
 
