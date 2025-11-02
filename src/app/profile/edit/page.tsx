@@ -153,7 +153,7 @@ export default function EditProfilePage() {
                       {...register('firstName')}
                       type="text"
                       id="firstName"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     />
                     {errors.firstName && (
                       <p className="mt-1 text-sm text-red-600">{errors.firstName.message}</p>
@@ -168,7 +168,7 @@ export default function EditProfilePage() {
                       {...register('lastName')}
                       type="text"
                       id="lastName"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     />
                     {errors.lastName && (
                       <p className="mt-1 text-sm text-red-600">{errors.lastName.message}</p>
@@ -183,7 +183,7 @@ export default function EditProfilePage() {
                       {...register('dateOfBirth')}
                       type="date"
                       id="dateOfBirth"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     />
                     {errors.dateOfBirth && (
                       <p className="mt-1 text-sm text-red-600">{errors.dateOfBirth.message}</p>
@@ -197,7 +197,7 @@ export default function EditProfilePage() {
                     <select
                       {...register('gender')}
                       id="gender"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     >
                       <option value="">Select Gender</option>
                       <option value="Male">Male</option>
@@ -216,7 +216,7 @@ export default function EditProfilePage() {
                     <select
                       {...register('maritalStatus')}
                       id="maritalStatus"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     >
                       <option value="">Select Status</option>
                       <option value="NeverMarried">Never Married</option>
@@ -237,7 +237,7 @@ export default function EditProfilePage() {
                       {...register('heightInCm', { valueAsNumber: true })}
                       type="number"
                       id="heightInCm"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     />
                     {errors.heightInCm && (
                       <p className="mt-1 text-sm text-red-600">{errors.heightInCm.message}</p>
@@ -259,7 +259,7 @@ export default function EditProfilePage() {
                       {...register('religion')}
                       type="text"
                       id="religion"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     />
                     {errors.religion && (
                       <p className="mt-1 text-sm text-red-600">{errors.religion.message}</p>
@@ -274,7 +274,7 @@ export default function EditProfilePage() {
                       {...register('community')}
                       type="text"
                       id="community"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     />
                     {errors.community && (
                       <p className="mt-1 text-sm text-red-600">{errors.community.message}</p>
@@ -289,7 +289,7 @@ export default function EditProfilePage() {
                       {...register('motherTongue')}
                       type="text"
                       id="motherTongue"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     />
                     {errors.motherTongue && (
                       <p className="mt-1 text-sm text-red-600">{errors.motherTongue.message}</p>
@@ -311,7 +311,7 @@ export default function EditProfilePage() {
                       {...register('education')}
                       type="text"
                       id="education"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     />
                     {errors.education && (
                       <p className="mt-1 text-sm text-red-600">{errors.education.message}</p>
@@ -326,7 +326,7 @@ export default function EditProfilePage() {
                       {...register('occupation')}
                       type="text"
                       id="occupation"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     />
                     {errors.occupation && (
                       <p className="mt-1 text-sm text-red-600">{errors.occupation.message}</p>
@@ -341,7 +341,7 @@ export default function EditProfilePage() {
                       {...register('annualIncome', { valueAsNumber: true })}
                       type="number"
                       id="annualIncome"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     />
                   </div>
                 </div>
@@ -360,7 +360,7 @@ export default function EditProfilePage() {
                       {...register('country')}
                       type="text"
                       id="country"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     />
                     {errors.country && (
                       <p className="mt-1 text-sm text-red-600">{errors.country.message}</p>
@@ -375,7 +375,7 @@ export default function EditProfilePage() {
                       {...register('state')}
                       type="text"
                       id="state"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     />
                     {errors.state && (
                       <p className="mt-1 text-sm text-red-600">{errors.state.message}</p>
@@ -390,7 +390,7 @@ export default function EditProfilePage() {
                       {...register('city')}
                       type="text"
                       id="city"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     />
                     {errors.city && (
                       <p className="mt-1 text-sm text-red-600">{errors.city.message}</p>
@@ -411,7 +411,7 @@ export default function EditProfilePage() {
                     {...register('about')}
                     id="about"
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   />
                   {errors.about && (
                     <p className="mt-1 text-sm text-red-600">{errors.about.message}</p>
@@ -426,7 +426,7 @@ export default function EditProfilePage() {
                     {...register('familyDetails')}
                     id="familyDetails"
                     rows={3}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   />
                 </div>
 
@@ -438,7 +438,7 @@ export default function EditProfilePage() {
                     {...register('hobbies')}
                     id="hobbies"
                     rows={3}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   />
                 </div>
               </div>

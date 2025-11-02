@@ -53,7 +53,7 @@ export default function RegisterPage() {
                 {...register('email')}
                 type="email"
                 id="email"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition text-gray-900"
                 placeholder="you@example.com"
               />
               {errors.email && (
@@ -69,7 +69,7 @@ export default function RegisterPage() {
                 {...register('phoneNumber')}
                 type="tel"
                 id="phoneNumber"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition text-gray-900"
                 placeholder="+1234567890"
               />
               {errors.phoneNumber && (
@@ -85,7 +85,7 @@ export default function RegisterPage() {
                 {...register('password')}
                 type="password"
                 id="password"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition"
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition text-gray-900"
                 placeholder="••••••••"
               />
               {errors.password && (

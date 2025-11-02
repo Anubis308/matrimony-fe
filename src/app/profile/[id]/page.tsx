@@ -292,7 +292,7 @@ export default function ProfileViewPage() {
                   onChange={(e) => setInterestMessage(e.target.value)}
                   placeholder="Write a message to introduce yourself..."
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none mb-4"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none mb-4 text-gray-900"
                 />
                 
                 <div className="flex gap-3">

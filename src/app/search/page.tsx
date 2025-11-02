@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { searchSchema, type SearchInput } from '@/lib/schemas/profile';
-import { useSearch } from '@/hooks/useSearch';
+import { searchSchema } from '@/lib/schemas/profile';
+import { searchApi, type SearchResponse } from '@/lib/api/search';
 import { useAuth } from '@/hooks/useAuth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -12,9 +12,8 @@ import Link from 'next/link';
 export default function SearchPage() {
   const router = useRouter();
   const { isAuthenticated } = useAuth();
-  const { searchProfiles } = useSearch();
   const [showFilters, setShowFilters] = useState(false);
-  const [searchResults, setSearchResults] = useState<any>(null);
+  const [searchResults, setSearchResults] = useState<SearchResponse | null>(null);
   const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
@@ -26,8 +25,7 @@ export default function SearchPage() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<SearchInput>({
+  } = useForm({
     resolver: zodResolver(searchSchema),
     defaultValues: {
       pageNumber: 1,
@@ -35,10 +33,11 @@ export default function SearchPage() {
     },
   });
 
-  const onSubmit = async (data: SearchInput) => {
+  const onSubmit = async (data: Record<string, unknown>) => {
     try {
       setIsSearching(true);
-      const results = await searchProfiles(data);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const results = await searchApi.searchProfiles(data as any);
       setSearchResults(results);
     } catch (err) {
       console.error('Search failed:', err);
@@ -89,7 +88,7 @@ export default function SearchPage() {
                     </label>
                     <select
                       {...register('gender')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-gray-900"
                     >
                       <option value="">Any</option>
                       <option value="Male">Male</option>
@@ -105,7 +104,7 @@ export default function SearchPage() {
                     <input
                       {...register('minAge', { valueAsNumber: true })}
                       type="number"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-gray-900"
                       placeholder="25"
                     />
                   </div>
@@ -117,7 +116,7 @@ export default function SearchPage() {
                     <input
                       {...register('maxAge', { valueAsNumber: true })}
                       type="number"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-gray-900"
                       placeholder="35"
                     />
                   </div>
@@ -129,7 +128,7 @@ export default function SearchPage() {
                     <input
                       {...register('religion')}
                       type="text"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-gray-900"
                       placeholder="Christianity, Islam, etc."
                     />
                   </div>
@@ -141,7 +140,7 @@ export default function SearchPage() {
                     <input
                       {...register('community')}
                       type="text"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-gray-900"
                     />
                   </div>
 
@@ -151,7 +150,7 @@ export default function SearchPage() {
                     </label>
                     <select
                       {...register('maritalStatus')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-gray-900"
                     >
                       <option value="">Any</option>
                       <option value="NeverMarried">Never Married</option>
@@ -168,7 +167,7 @@ export default function SearchPage() {
                     <input
                       {...register('education')}
                       type="text"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-gray-900"
                       placeholder="Bachelor's, Master's, etc."
                     />
                   </div>
@@ -180,7 +179,7 @@ export default function SearchPage() {
                     <input
                       {...register('occupation')}
                       type="text"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-gray-900"
                     />
                   </div>
 
@@ -191,7 +190,7 @@ export default function SearchPage() {
                     <input
                       {...register('minHeightInCm', { valueAsNumber: true })}
                       type="number"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-gray-900"
                       placeholder="160"
                     />
                   </div>
@@ -203,7 +202,7 @@ export default function SearchPage() {
                     <input
                       {...register('country')}
                       type="text"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-gray-900"
                     />
                   </div>
 
@@ -214,7 +213,7 @@ export default function SearchPage() {
                     <input
                       {...register('state')}
                       type="text"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-gray-900"
                     />
                   </div>
 
@@ -225,7 +224,7 @@ export default function SearchPage() {
                     <input
                       {...register('city')}
                       type="text"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none"
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 outline-none text-gray-900"
                     />
                   </div>
                 </div>
@@ -252,7 +251,7 @@ export default function SearchPage() {
 
               {searchResults.profiles.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {searchResults.profiles.map((profile: any) => (
+                  {searchResults.profiles.map((profile) => (
                     <Link
                       key={profile.id}
                       href={`/profile/${profile.id}`}

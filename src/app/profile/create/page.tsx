@@ -60,7 +60,7 @@ export default function CreateProfilePage() {
                     {...register('firstName')}
                     type="text"
                     id="firstName"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   />
                   {errors.firstName && (
                     <p className="mt-1 text-sm text-red-600">{errors.firstName.message}</p>
@@ -75,7 +75,7 @@ export default function CreateProfilePage() {
                     {...register('lastName')}
                     type="text"
                     id="lastName"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   />
                   {errors.lastName && (
                     <p className="mt-1 text-sm text-red-600">{errors.lastName.message}</p>
@@ -90,7 +90,7 @@ export default function CreateProfilePage() {
                     {...register('dateOfBirth')}
                     type="date"
                     id="dateOfBirth"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   />
                   {errors.dateOfBirth && (
                     <p className="mt-1 text-sm text-red-600">{errors.dateOfBirth.message}</p>
@@ -104,7 +104,7 @@ export default function CreateProfilePage() {
                   <select
                     {...register('gender')}
                     id="gender"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   >
                     <option value="">Select Gender</option>
                     <option value="Male">Male</option>
@@ -123,7 +123,7 @@ export default function CreateProfilePage() {
                   <select
                     {...register('maritalStatus')}
                     id="maritalStatus"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   >
                     <option value="">Select Status</option>
                     <option value="NeverMarried">Never Married</option>
@@ -144,7 +144,7 @@ export default function CreateProfilePage() {
                     {...register('heightInCm', { valueAsNumber: true })}
                     type="number"
                     id="heightInCm"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     placeholder="170"
                   />
                   {errors.heightInCm && (
@@ -167,7 +167,7 @@ export default function CreateProfilePage() {
                     {...register('religion')}
                     type="text"
                     id="religion"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     placeholder="Christianity, Islam, Hinduism, etc."
                   />
                   {errors.religion && (
@@ -183,7 +183,7 @@ export default function CreateProfilePage() {
                     {...register('community')}
                     type="text"
                     id="community"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   />
                   {errors.community && (
                     <p className="mt-1 text-sm text-red-600">{errors.community.message}</p>
@@ -198,7 +198,7 @@ export default function CreateProfilePage() {
                     {...register('motherTongue')}
                     type="text"
                     id="motherTongue"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   />
                   {errors.motherTongue && (
                     <p className="mt-1 text-sm text-red-600">{errors.motherTongue.message}</p>
@@ -220,7 +220,7 @@ export default function CreateProfilePage() {
                     {...register('education')}
                     type="text"
                     id="education"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     placeholder="Bachelor's, Master's, PhD, etc."
                   />
                   {errors.education && (
@@ -236,7 +236,7 @@ export default function CreateProfilePage() {
                     {...register('occupation')}
                     type="text"
                     id="occupation"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   />
                   {errors.occupation && (
                     <p className="mt-1 text-sm text-red-600">{errors.occupation.message}</p>
@@ -251,7 +251,7 @@ export default function CreateProfilePage() {
                     {...register('annualIncome', { valueAsNumber: true })}
                     type="number"
                     id="annualIncome"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                     placeholder="50000"
                   />
                   {errors.annualIncome && (
@@ -274,7 +274,7 @@ export default function CreateProfilePage() {
                     {...register('country')}
                     type="text"
                     id="country"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   />
                   {errors.country && (
                     <p className="mt-1 text-sm text-red-600">{errors.country.message}</p>
@@ -289,7 +289,7 @@ export default function CreateProfilePage() {
                     {...register('state')}
                     type="text"
                     id="state"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   />
                   {errors.state && (
                     <p className="mt-1 text-sm text-red-600">{errors.state.message}</p>
@@ -304,7 +304,7 @@ export default function CreateProfilePage() {
                     {...register('city')}
                     type="text"
                     id="city"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   />
                   {errors.city && (
                     <p className="mt-1 text-sm text-red-600">{errors.city.message}</p>
@@ -325,7 +325,7 @@ export default function CreateProfilePage() {
                   {...register('about')}
                   id="about"
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   placeholder="Tell us about yourself..."
                 />
                 {errors.about && (
@@ -341,7 +341,7 @@ export default function CreateProfilePage() {
                   {...register('familyDetails')}
                   id="familyDetails"
                   rows={3}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   placeholder="Tell us about your family..."
                 />
               </div>
@@ -354,7 +354,7 @@ export default function CreateProfilePage() {
                   {...register('hobbies')}
                   id="hobbies"
                   rows={3}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none text-gray-900"
                   placeholder="Reading, traveling, cooking..."
                 />
               </div>
