@@ -6,6 +6,7 @@ export interface Profile {
   userId: string;
   firstName: string;
   lastName: string;
+  dateOfBirth: string;
   age: number;
   gender: string;
   religion: string;

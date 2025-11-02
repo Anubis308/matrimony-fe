@@ -23,20 +23,11 @@ export default function CreateProfilePage() {
   const onSubmit = async (data: ProfileInput) => {
     try {
       setError('');
-      // Convert gender string to number for API
-      const genderMap: any = { Male: 0, Female: 1, Other: 2 };
-      const maritalStatusMap: any = { NeverMarried: 0, Divorced: 1, Widowed: 2, AwaitingDivorce: 3 };
-      
-      const profileData = {
-        ...data,
-        gender: genderMap[data.gender],
-        maritalStatus: maritalStatusMap[data.maritalStatus],
-      };
-      
-      await createProfile(profileData);
+      await createProfile(data);
       router.push('/dashboard');
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Failed to create profile. Please try again.');
+    } catch (err) {
+      const error = err as { response?: { data?: { message?: string } } };
+      setError(error.response?.data?.message || 'Failed to create profile. Please try again.');
     }
   };
 

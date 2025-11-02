@@ -43,15 +43,26 @@ export default function EditProfilePage() {
   useEffect(() => {
     if (profile) {
       // Convert backend format to form format
-      const formData: any = {
+      // Handle date conversion safely
+      let dateOfBirth = '';
+      try {
+        const date = new Date(profile.dateOfBirth);
+        if (!isNaN(date.getTime())) {
+          dateOfBirth = date.toISOString().split('T')[0];
+        }
+      } catch (e) {
+        console.error('Invalid date format:', e);
+      }
+
+      const formData = {
         firstName: profile.firstName,
         lastName: profile.lastName,
-        dateOfBirth: new Date(profile.dateOfBirth).toISOString().split('T')[0],
-        gender: profile.gender,
+        dateOfBirth: dateOfBirth,
+        gender: profile.gender as 'Male' | 'Female' | 'Other',
         religion: profile.religion,
         community: profile.community,
         motherTongue: profile.motherTongue,
-        maritalStatus: profile.maritalStatus,
+        maritalStatus: profile.maritalStatus as 'NeverMarried' | 'Divorced' | 'Widowed' | 'AwaitingDivorce',
         heightInCm: profile.heightInCm,
         education: profile.education,
         occupation: profile.occupation,
@@ -72,23 +83,14 @@ export default function EditProfilePage() {
       setError('');
       setSuccess(false);
       
-      // Convert gender and marital status strings to numbers for API
-      const genderMap: any = { Male: 0, Female: 1, Other: 2 };
-      const maritalStatusMap: any = { NeverMarried: 0, Divorced: 1, Widowed: 2, AwaitingDivorce: 3 };
-      
-      const profileData = {
-        ...data,
-        gender: genderMap[data.gender],
-        maritalStatus: maritalStatusMap[data.maritalStatus],
-      };
-      
-      await updateProfile(profileData);
+      await updateProfile(data);
       setSuccess(true);
       setTimeout(() => {
         router.push('/dashboard');
       }, 2000);
-    } catch (err: any) {
-      setError(err.response?.data?.message || 'Failed to update profile. Please try again.');
+    } catch (err) {
+      const error = err as { response?: { data?: { message?: string } } };
+      setError(error.response?.data?.message || 'Failed to update profile. Please try again.');
     }
   };
 

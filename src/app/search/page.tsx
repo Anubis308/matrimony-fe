@@ -38,17 +38,7 @@ export default function SearchPage() {
   const onSubmit = async (data: SearchInput) => {
     try {
       setIsSearching(true);
-      // Convert string values to numbers for API
-      const genderMap: any = { Male: 0, Female: 1, Other: 2 };
-      const maritalStatusMap: any = { NeverMarried: 0, Divorced: 1, Widowed: 2, AwaitingDivorce: 3 };
-      
-      const searchData: any = {
-        ...data,
-        gender: data.gender ? genderMap[data.gender] : undefined,
-        maritalStatus: data.maritalStatus ? maritalStatusMap[data.maritalStatus] : undefined,
-      };
-      
-      const results = await searchProfiles(searchData);
+      const results = await searchProfiles(data);
       setSearchResults(results);
     } catch (err) {
       console.error('Search failed:', err);
